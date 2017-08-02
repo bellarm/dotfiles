@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "No cpp file specified";
+    exit 1;
+fi
+
+if ! [[ `echo $1 | egrep 'cpp'` ]]; then
+    echo "Not a cpp file";
+    exit 1;
+fi
+
+run=`echo $1 | cut -d'.' -f1`
+
+# now compile the program
+g++ -std=c++14 -Wall -Werror -O2 -o $run $1
+
