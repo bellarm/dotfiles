@@ -7,18 +7,18 @@ endif
 
 call plug#begin()
 
-" status plugins
+" Status plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" colors plugins
+" Colors plugins
 Plug 'MaxSt/FlatColor'                      " flatcolor
 Plug 'mhartington/oceanic-next'             " OceanicNext
 Plug 'CallumHoward/vim-neodark'
-" color generator
+" Color generator
 Plug 'dylanaraps/wal.vim'
 
-" syntax plugins
+" Syntax plugins
 Plug 'Shougo/deoplete.nvim', 
         \ { 'do': ':UpdateRemotePlugins' }  " completion
 Plug 'mattn/emmet-vim'                      " for html/css/js
@@ -51,7 +51,7 @@ set autoindent
 set termguicolors
 colo OceanicNext
 
-" Indentation
+" Indentation for specific filetype
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
 autocmd Filetype css setlocal shiftwidth=2 tabstop=2
@@ -64,11 +64,12 @@ let python_highlight_all=1
 let g:airline_theme='base16_ashes'
 
 " Turn on autocomplete
-let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup=1
 
-" clang path for c/c++ completion
-let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so.1'
-let g:deoplete#sources#clang#clang_header = '/usr/include/clang/3.8.0/include/'
+" Clang path for c/c++ completion
+let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so.1'
+let g:deoplete#sources#clang#clang_header='/usr/include/clang/3.8.0/include/'
 
-" get rid of preview window
+" Get rid of preview window
 set completeopt-=preview
+
