@@ -1,4 +1,4 @@
-"""""""""""""""""""""""""""""""" Install Vim Plug if not installed
+"""""""""""""""""""""""""""""""" install Vim Plug if not installed
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -7,69 +7,101 @@ endif
 
 call plug#begin()
 
-" Status plugins
+" vim sensible to make things more sensible
+Plug 'tpope/vim-sensible'
+
+" status plugins
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" Colors plugins
+" colors plugins
 Plug 'MaxSt/FlatColor'                      " flatcolor
 Plug 'mhartington/oceanic-next'             " OceanicNext
 Plug 'CallumHoward/vim-neodark'
-" Color generator
+" color generator
 Plug 'dylanaraps/wal.vim'
 
-" Syntax plugins
-Plug 'Shougo/deoplete.nvim', 
+" syntax plugins
+Plug 'Shougo/deoplete.nvim',
         \ { 'do': ':UpdateRemotePlugins' }  " completion
 Plug 'mattn/emmet-vim'                      " for html/css/js
 Plug 'zchee/deoplete-jedi'                  " for python
 Plug 'zchee/deoplete-clang'                 " for c/c++
 
 call plug#end()
-"""""""""""""""""""""""""""""""" End of vim-plug
+"""""""""""""""""""""""""""""""" end of vim-plug
 
-" Turn on line numbers
+" turn on line numbers
 set relativenumber
 set number
 
-" No wrap line
-set nowrap
-set linebreak
+" wrap line following its indent level
+set breakindent
 
-" Turn on syntax highlighting
+" turn on syntax highlighting
 syntax enable
 filetype plugin indent on
 
-" Indentation
+" default indentation
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
 set expandtab
 set autoindent
 
-" Colors for nvim
-set termguicolors
-colo OceanicNext
-
-" Indentation for specific filetype
+" indentation for specific filetype
 autocmd FileType html setlocal shiftwidth=2 tabstop=2
 autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
 autocmd Filetype css setlocal shiftwidth=2 tabstop=2
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2
+autocmd FileType tex setlocal shiftwidth=2 tabstop=2
+autocmd FileType cpp setlocal shiftwidth=2 tabstop=2
 
-" Syntax highlighting for python
+" colors for nvim
+set background=dark
+set termguicolors
+colo OceanicNext
+set colorcolumn=80
+
+" syntax highlighting for python
 let python_highlight_all=1
 
-" Color for vim airline
+" color for vim airline
 let g:airline_theme='base16_ashes'
 
-" Turn on autocomplete
+" turn on autocomplete
 let g:deoplete#enable_at_startup=1
 
-" Clang path for c/c++ completion
-let g:deoplete#sources#clang#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so.1'
-let g:deoplete#sources#clang#clang_header='/usr/include/clang/3.8.0/include/'
+" clang path for c/c++ completion
+let g:deoplete#sources#clang#libclang_path=
+            \'/usr/lib/llvm-3.8/lib/libclang.so.1'
+let g:deoplete#sources#clang#clang_header=
+            \'/usr/include/clang/3.8.0/include/'
 
-" Get rid of preview window
+" get rid of preview window
 set completeopt-=preview
+
+" need to highlight trailing spaces
+
+" map kj to <Esc> in insert mode
+inoremap kj <Esc>
+
+" map alt to change tab
+noremap <A-.> gt
+noremap <A-,> gT
+noremap <A-1> 1gt
+noremap <A-2> 2gt
+noremap <A-3> 3gt
+noremap <A-4> 4gt
+noremap <A-5> 5gt
+
+" map Ctrl+s to save and close
+noremap <C-s> :wq<Return>
+
+" enable mouse
+set mouse=a
+
+" make neovim transparent
+highlight Normal guibg=none
+highlight NonText guibg=none
 
