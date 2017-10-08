@@ -21,12 +21,16 @@ Plug 'CallumHoward/vim-neodark'
 " color generator
 Plug 'dylanaraps/wal.vim'
 
-" syntax plugins
+" autocomplete plugins
 Plug 'Shougo/deoplete.nvim',
         \ { 'do': ':UpdateRemotePlugins' }  " completion
 Plug 'mattn/emmet-vim'                      " for html/css/js
 Plug 'zchee/deoplete-jedi'                  " for python
 Plug 'zchee/deoplete-clang'                 " for c/c++
+Plug 'artur-shaik/vim-javacomplete2'        " for java
+
+" git gutter
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 """""""""""""""""""""""""""""""" end of vim-plug
@@ -35,6 +39,8 @@ call plug#end()
 set relativenumber
 set number
 
+" highlight current line
+set cursorline
 " wrap line following its indent level
 set breakindent
 
@@ -104,4 +110,27 @@ set mouse=a
 " make neovim transparent
 highlight Normal guibg=none
 highlight NonText guibg=none
+
+" turn off vim-gitgutter
+"let g:gitgutter_enabled=0
+
+" change the symbol for gitgutter
+let g:gitgutter_sign_added='▌'
+let g:gitgutter_sign_modified='▌'
+let g:gitgutter_sign_removed='▌'
+let g:gitgutter_sign_removed_first_line='▌'
+let g:gitgutter_sign_modified_removed='▌'
+
+set clipboard=unnamedplus
+
+" java autocomplete settings
+set omnifunc=syntaxcomplete#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#omni_patterns = {}
+let g:deoplete#omni_patterns.java = '[^. *\t]\.\w*'
+let g:deoplete#auto_completion_start_length = 2
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = []
+let g:deoplete#file#enable_buffer_path = 1
 
