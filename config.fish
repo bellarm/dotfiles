@@ -18,11 +18,13 @@ function bored
 end
 
 # set vim to nvim
-alias vim="nvim"
 alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 # compile script for 17s2 (because I'm lazy)
 alias cpp="~/compile_cpp"
+alias jogl="~/compile_jogl"
 
 # set python to python3
 alias python="python3"
@@ -32,4 +34,9 @@ alias fb="fb-messenger-cli"
 
 # ssh to cse
 alias cse="ssh z5083765@cse.unsw.edu.au"
+
+# intellij
+alias intj="bash ~/idea-IU-172.3317.76/bin/idea.sh"
+
+alias please="sudo"
 
