@@ -18,6 +18,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'MaxSt/FlatColor'                      " flatcolor
 Plug 'mhartington/oceanic-next'             " OceanicNext
 Plug 'CallumHoward/vim-neodark'
+Plug 'arcticicestudio/nord-vim'
+Plug 'KabbAmine/yowish.vim'
+
 " color generator
 Plug 'dylanaraps/wal.vim'
 
@@ -74,6 +77,7 @@ let python_highlight_all=1
 
 " color for vim airline
 let g:airline_theme='base16_ashes'
+let g:airline_theme='yowish'
 
 " turn on autocomplete
 let g:deoplete#enable_at_startup=1
