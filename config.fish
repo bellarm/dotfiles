@@ -25,8 +25,6 @@ function cd
     end
 end
 
-alias please="sudo"
-
 # set vim to nvim
 alias v="nvim"
 alias vi="nvim"
@@ -40,5 +38,22 @@ alias python="python3"
 # fb messenger from terminal
 alias fb="fb-messenger-cli"
 
-alias intj="bash ~/idea-IU-172.3317.76/bin/idea.sh"
+# ssh to cse
+alias cse="ssh z5083765@cse.unsw.edu.au"
 
+alias fffff="cd Documents/other/notes/fortify"
+
+alias intj="bash ~/idea-IU-172.3317.76/bin/idea.sh"
+alias anst="bash /usr/local/android-studio/bin/studio.sh"
+alias please="sudo"
+
+# sdkman
+# sdk command
+function sdk
+    bash -c "source $HOME/.sdkman/bin/sdkman-init.sh && sdk $argv"
+end
+
+# add paths
+for ITEM in $HOME/.sdkman/candidates/* ;
+    set -gx PATH $PATH $ITEM/current/bin
+end

@@ -31,6 +31,7 @@ Plug 'mattn/emmet-vim'                      " for html/css/js
 Plug 'zchee/deoplete-jedi'                  " for python
 Plug 'zchee/deoplete-clang'                 " for c/c++
 Plug 'artur-shaik/vim-javacomplete2'        " for java
+Plug 'udalov/kotlin-vim'                    " for kotlin
 
 " git gutter
 Plug 'airblade/vim-gitgutter'
