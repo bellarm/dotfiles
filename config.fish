@@ -38,11 +38,6 @@ alias python="python3"
 # fb messenger from terminal
 alias fb="fb-messenger-cli"
 
-# ssh to cse
-alias cse="ssh z5083765@cse.unsw.edu.au"
-
-alias fffff="cd Documents/other/notes/fortify"
-
 alias intj="bash ~/idea-IU-172.3317.76/bin/idea.sh"
 alias anst="bash /usr/local/android-studio/bin/studio.sh"
 alias please="sudo"
